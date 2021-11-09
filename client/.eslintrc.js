@@ -7,11 +7,13 @@ module.exports = {
   }, 
   parser: "@typescript-eslint/parser",
   parserOptions: { project: "./tsconfig.json" },
-  plugins: ["simple-import-sort"],
+  settings: { tailwindcss: { groupByResponsive: true } }, // tailwindcss moduleに対して実行されるすべてのルールに適用
+  plugins: ["simple-import-sort", "tailwindcss", "import-access"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
     "next",
     "next/core-web-vitals",
     "prettier",
@@ -53,9 +55,9 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": ["warn", { prefer: "type-imports" }],
     "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }], // 未使用変数はエラー
   },
-  overrides: [
+  overrides: [　// 一部ルールを除外する
     {
-      files: ["src/pages/**/*.tsx", "src/pages/api/**/*.ts"],
+      files: ["src/pages/**/*.tsx", "src/pages/api/**/*.ts"], // pagesのdefault exportは仕方ないので除外
       rules: { "import/no-default-export": "off" },
     },
   ],

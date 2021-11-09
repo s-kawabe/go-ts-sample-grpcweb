@@ -16,7 +16,10 @@
     "printWidth": 120
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.2",
+    "clsx": "^1.1.1",
     "next": "12.0.3",
+    "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -31,7 +34,9 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-tailwindcss": "^1.17.1",
     "prettier": "^2.4.1",
+    "tailwindcss": "^2.2.19",
     "typescript": "4.4.4"
   }
 }
