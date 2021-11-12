@@ -1,3 +1,4 @@
+// eslintは構文エラーなどあると効いてくれないのでlint scriptsを動かしてみることが大事
 module.exports = {
   root: true,
   env: {
@@ -6,9 +7,15 @@ module.exports = {
     node: true,
   }, 
   parser: "@typescript-eslint/parser",
-  parserOptions: { project: "./tsconfig.json" },
+  parserOptions: { 
+    project: "./tsconfig.json", 
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: 'module',
+  },
   settings: { tailwindcss: { groupByResponsive: true } }, // tailwindcss moduleに対して実行されるすべてのルールに適用
-  plugins: ["simple-import-sort", "tailwindcss", "import-access"],
+  plugins: ['react-hooks', 'react', '@typescript-eslint', 'import', "simple-import-sort", "tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -19,7 +26,7 @@ module.exports = {
     "prettier",
   ],
   rules: {
-    "no-console": ["warn", { allow: ["warn", "info", "error"] }], // console.logが残っていればwarn
+    "no-console": ["error", { allow: ["warn", "info", "error"] }], // console.logが残っていればwarn
     "no-restricted-syntax": [ // for in, for of, enumは使わない
       "error",
       {
@@ -43,22 +50,28 @@ module.exports = {
     "react/prop-types": "off", // ts使うので不要
     "react/react-in-jsx-scope": "off", // reactはグローバルなので不要
     "react/display-name": "error", // 無名関数を禁止する
+    "react/no-unused-prop-types": "error", // 未使用propsはエラー
     "react-hooks/rules-of-hooks": "error", // hooksの基本的なlinter
     "react-hooks/exhaustive-deps": "warn", // effectやcallbackのdeps linter
     "import/newline-after-import": "error",
     "import/no-default-export": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
     "@typescript-eslint/consistent-type-imports": ["warn", { prefer: "type-imports" }],
-    "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }], // 未使用変数はエラー
+    "@typescript-eslint/no-unused-vars": ["error", { varsIgnorePattern: "^_", argsIgnorePattern: "^_", }], // 未使用変数はエラー
+    "tailwindcss/no-custom-classname": "off" // daisy使うとエラー出るのでオフ
   },
   overrides: [　// 一部ルールを除外する
     {
-      files: ["src/pages/**/*.tsx", "src/pages/api/**/*.ts"], // pagesのdefault exportは仕方ないので除外
+      files: ["src/pages/**/*.tsx"], // pagesのdefault exportは仕方ないので除外
       rules: { "import/no-default-export": "off" },
     },
-  ],
+    {
+      files: ["**/*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
+  }],
 }
