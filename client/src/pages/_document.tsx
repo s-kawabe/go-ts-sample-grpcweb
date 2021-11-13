@@ -9,7 +9,7 @@ class SampleDocument extends Document {
 
   render() {
     return (
-      <Html data-theme="light">
+      <Html data-theme="halloween">
         <Head></Head>
         <body>
           <Main />

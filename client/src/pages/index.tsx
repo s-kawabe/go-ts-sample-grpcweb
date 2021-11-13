@@ -15,11 +15,44 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <div className="flex md:flex-col">
+        <div className="flex gap-5">
           <button className="btn btn-info">info</button>
           <button className="btn btn-success">success</button>
           <button className="btn btn-warning">warning</button>
           <button className="btn btn-error">error</button>
+        </div>
+
+        <div className="alert alert-error">
+          <div className="flex-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="mx-2 w-6 h-6 stroke-current"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+              ></path>
+            </svg>
+            <p>Lorem ipsum dolor sit amet, consectetur adip!</p>
+          </div>
+        </div>
+
+        <div className="w-96 shadow-md card bordered">
+          <div className="card-body">
+            <h2 className="card-title">Small image file</h2>
+            <p>
+              Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed
+              molestiae voluptates incidunt iure sapiente.
+            </p>
+            <div className="card-actions">
+              <div className="badge badge-ghost">Article</div>
+              <div className="badge badge-ghost">Photography</div>
+            </div>
+          </div>
         </div>
 
         <p>
