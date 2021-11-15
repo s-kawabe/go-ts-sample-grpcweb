@@ -1,11 +1,12 @@
+import clsx from 'clsx'
 import { useTheme } from 'next-themes'
 
 import type { ColorTheme } from '@/utils/theme'
 
-export const ColorThemeButton = () => {
-  const { setTheme } = useTheme()
+const ALL_THEME: ColorTheme[] = ['light', 'dark', 'dracula', 'halloween', 'garden', 'pastel']
 
-  const ALL_THEME: ColorTheme[] = ['light', 'dark', 'dracula', 'halloween', 'garden', 'pastel']
+const ColorThemeButton = () => {
+  const { theme, setTheme } = useTheme()
 
   return (
     <div className="dropdown dropdown-hover dropdown-end">
@@ -14,18 +15,17 @@ export const ColorThemeButton = () => {
           🎨
         </span>
       </div>
-      <ul className="p-2 w-52 shadow menu dropdown-content bg-base-100 rounded-box">
-        {ALL_THEME.map((theme) => {
+      <ul className="p-2 w-52 shadow menu compact dropdown-content bg-base-100 rounded-box">
+        {ALL_THEME.map((color) => {
           return (
-            <li key={theme} className="flex items-center p-2">
-              <button
-                className="btn btn-sm"
-                onClick={() => {
-                  setTheme(theme)
-                }}
-              >
-                {theme}
-              </button>
+            <li
+              key={color}
+              className={clsx('p-2 hover:bg-blue-100 rounded-lg cursor-pointer', theme === color && 'bg-blue-100')}
+              onClick={() => {
+                setTheme(color)
+              }}
+            >
+              {color}
             </li>
           )
         })}
@@ -33,3 +33,5 @@ export const ColorThemeButton = () => {
     </div>
   )
 }
+
+export { ColorThemeButton }

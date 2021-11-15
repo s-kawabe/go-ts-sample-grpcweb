@@ -1,6 +1,6 @@
-import { ColorThemeButton } from '@/components/ui/unit/ColorThemeButton'
+import { ColorThemeButton } from '@/components/ui/unit'
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className="flex justify-between items-center px-4 ml-auto w-full h-20 bg-green-300">
       <div />
@@ -8,3 +8,5 @@ export const Header = () => {
     </div>
   )
 }
+
+export { Header }
