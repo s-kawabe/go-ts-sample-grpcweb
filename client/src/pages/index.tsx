@@ -2,8 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useTheme } from 'next-themes'
 
-import { ColorThemeButton } from '@/components/ui/ColorThemeButton'
-
 const Home: NextPage = () => {
   const { theme } = useTheme()
 
@@ -16,20 +14,18 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1 className="font-serif">
+        <h1 className="my-3 font-serif">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <div className="flex gap-5">
+        <div className="flex gap-5 my-3">
           <button className="btn btn-info">info</button>
           <button className="btn btn-success">success</button>
           <button className="btn btn-warning">warning</button>
           <button className="btn btn-error">error</button>
         </div>
 
-        <ColorThemeButton />
-
-        <div className="alert alert-error">
+        <div className="my-3 alert alert-error">
           <div className="flex-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +44,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="w-96 shadow-md card bordered">
+        <div className="my-3 w-96 shadow-md card bordered">
           <div className="card-body">
             <h2 className="card-title">Small image file</h2>
             <p>

@@ -1,1 +1,1 @@
-export type ColorTheme = 'light' | 'dark' | 'dracula' | 'halloween' | 'garden'
+export type ColorTheme = 'light' | 'dark' | 'dracula' | 'halloween' | 'garden' | 'pastel'
