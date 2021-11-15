@@ -26,7 +26,7 @@ module.exports = {
     "prettier",
   ],
   rules: {
-    "no-console": ["error", { allow: ["warn", "info", "error"] }], // console.logが残っていればwarn
+    "no-console": ["warn", { allow: ["warn", "info", "error"] }], // console.logが残っていればwarn
     "no-restricted-syntax": [ // for in, for of, enumは使わない
       "error",
       {
