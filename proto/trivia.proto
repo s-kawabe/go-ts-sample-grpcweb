@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package trivia;
+option go_package = "./trivia";
+
+service TriviaService {
+    rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+    string text = 1;
+}
+
+message HelloResponse {
+    string message = 1;
+}
