@@ -97,5 +97,5 @@ var TriviaService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/trivia.proto",
+	Metadata: "trivia.proto",
 }
