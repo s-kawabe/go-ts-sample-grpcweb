@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package trivia;
-option go_package = "./trivia";
+package Blog;
+option go_package = "./Blog";
 
-service TriviaService {
+service BlogService {
     rpc SayHello (HelloRequest) returns (HelloResponse);
 }
 
