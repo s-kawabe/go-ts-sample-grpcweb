@@ -19,7 +19,7 @@ type server struct {
 	pb.UnimplementedBlogServiceServer
 }
 
-// Helloメソッドを実装することでprotoファイルで定義した内容と連携できます
+// Helloメソッドを実装することでprotoファイルで定義した内容と連携できる。
 func (*server) MockApi(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
 	// Getxxxメソッドも自動に作成されています。
 	text := in.GetText()
